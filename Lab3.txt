@@ -1,0 +1,34 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <malloc.h>
+#include <math.h>
+
+
+int main()
+{
+    int *a;
+    int i, n;
+   
+    printf("Input size: ");
+    scanf("%d", &n);
+  a = (int*) malloc(n * sizeof(int));
+  for (i = 0; i<n; i++)
+  {
+    printf("a[%d] = ", i);
+    scanf("%d", &a[i]);
+  }
+  int z, c, fall=0;
+ 
+  for(z=0; z<n-1; z++){
+    c=z+1;
+    if(a[z] >= a[c]){
+        printf("False");
+        fall++;
+        break;
+    }
+  }
+ 
+  if(fall!=1){
+  printf("True");
+  }
+}
