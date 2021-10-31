@@ -1,34 +1,38 @@
-#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <malloc.h>
 #include <math.h>
 
-
 int main()
 {
-    int *a;
-    int i, n;
-   
-    printf("Input size: ");
-    scanf("%d", &n);
-  a = (int*) malloc(n * sizeof(int));
-  for (i = 0; i<n; i++)
+	int *massif, inputNumber, sizeNumber;
+    	printf("Input size: ");
+    	scanf("%d", &sizeNumber);
+    		
+massif = (int*) malloc (sizeNumber * sizeof(int));
+  
+	for (inputNumber = 0; inputNumber < sizeNumber; inputNumber++)
   {
-    printf("a[%d] = ", i);
-    scanf("%d", &a[i]);
+    printf("a[%d] = ", inputNumber);
+    scanf("%d", &massif[inputNumber]);
   }
-  int z, c, fall=0;
+  
+  
+  int element, nextElement, tmp;
+  tmp = 0;
  
-  for(z=0; z<n-1; z++){
-    c=z+1;
-    if(a[z] >= a[c]){
+	for(element=0; element < sizeNumber-1; element++)
+	{
+    nextElement = element + 1;
+    	if(massif[element] >= massif[nextElement])
+    	{		
         printf("False");
-        fall++;
-        break;
-    }
-  }
+        	tmp++;
+        		break;
+   		}
+	}
  
-  if(fall!=1){
-  printf("True");
-  }
+		if(tmp != 1)
+		{
+  			printf("True");
+		}
 }
